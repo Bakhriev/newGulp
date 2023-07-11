@@ -1,0 +1,45 @@
+.shiny-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, background 0.3s;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+    filter: blur(30px);
+    opacity: 0.4;
+    transition: 0.6s;
+  }
+
+  &::before {
+    width: 60px;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateX(-130px) skewX(-45deg);
+  }
+
+  &::after {
+    width: 30px;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateX(-130px) skewX(-45deg);
+  }
+
+  @include hover {
+    color: #f2f2f2;
+    background: #206592;
+  }
+
+  @include hover {
+    &::before,
+    &::after {
+      opacity: 0.6;
+      transform: translateX(320px) skewX(-45deg);
+    }
+  }
+  &:active {
+    scale: 0.97;
+  }
+}

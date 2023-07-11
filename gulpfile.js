@@ -3,7 +3,6 @@
 const {src, dest, series, parallel, watch} = require('gulp')
 
 const sass = require('gulp-sass')(require('node-sass'))
-const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 const plumber = require('gulp-plumber')
 const cssbeautify = require('gulp-cssbeautify')
@@ -79,7 +78,6 @@ function css() {
 				},
 			})
 		)
-		.pipe(sourcemaps.init())
 		.pipe(sass())
 		.pipe(
 			autoprefixer({
@@ -87,7 +85,6 @@ function css() {
 			})
 		)
 		.pipe(cssbeautify())
-		.pipe(sourcemaps.write('.'))
 		.pipe(dest(path.build.css))
 		.pipe(
 			cleanCss({

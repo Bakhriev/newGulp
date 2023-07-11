@@ -1,0 +1,29 @@
+.card-neon-stick {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(transparent, rgb(160, 50, 6), transparent);
+    transition: top 0.4s linear;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    top: 60%;
+    left: 0;
+  }
+  &::after {
+    top: 40%;
+    right: 0;
+  }
+  @include hover {
+    &::before,
+    &::after {
+      top: 50%;
+    }
+  }
+}

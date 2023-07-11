@@ -1,6 +1,28 @@
-.item {
-	color: red;
-	&__black {
-		color: black;
-	}
+// Base
+@import './base/reset';
+
+// Sass-utils
+@import './sass-utils/variables';
+@import './sass-utils/disable-mob-hover';
+@import './sass-utils/global';
+
+// UI
+// UI / Buttons
+@import '../../../ui/buttons/epic/epic-btn.scss';
+@import '../../../ui/buttons/shiny/shiny-btn.scss';
+
+// UI / DROPDOWN
+@import '../../../ui/dropdown/dropdown.scss';
+
+//Components
+@import './components/overlay';
+@import './components/burger';
+
+// Layouts
+@import './layout/header';
+@import './layout/hero';
+@import './layout/footer';
+
+body {
+	background: gray;
 }
