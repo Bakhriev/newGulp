@@ -11,6 +11,11 @@
 		}
 	}
 
+	&__logo {
+		display: block;
+		flex-shrink: 0;
+	}
+
 	&__navigation {
 		display: flex;
 		align-items: center;

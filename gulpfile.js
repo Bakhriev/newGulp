@@ -11,6 +11,7 @@ const cleanCss = require('gulp-clean-css')
 const browserSync = require('browser-sync').create()
 const notify = require('gulp-notify')
 const fileinclude = require('gulp-file-include')
+const htmlmin = require('gulp-htmlmin')
 const del = require('del')
 const concat = require('gulp-concat')
 const uglify = require('gulp-uglify')
@@ -33,25 +34,21 @@ const path = {
 		img: distPath + 'assets/img',
 		svg: distPath + 'assets/img/svg',
 		vendors: distPath + 'assets/vendors',
+		fonts: distPath + 'assets/fonts',
 	},
 	src: {
-		html: srcPath + '**/*.html',
+		html: srcPath + '/*.html',
 		css: srcPath + 'assets/scss/**/*.scss',
 		js: srcPath + 'assets/js/*.js',
-		img: srcPath + 'assets/img/*.{jpg, jpeg, png}',
+		img: srcPath + 'assets/img/*.{jpg,jpeg,png,svg}',
 		svg: srcPath + 'assets/img/svg/**/*.svg',
 		vendors: srcPath + 'assets/vendors/**/*.{css,js}',
+		fonts: srcPath + 'assets/fonts/**/*',
 	},
 	clean: distPath,
 }
 
-function serve() {
-	browserSync.init({
-		server: {
-			baseDir: distPath,
-		},
-	})
-}
+let isProd = false // dev default
 
 function html() {
 	return src(path.src.html)
@@ -62,7 +59,54 @@ function html() {
 			})
 		)
 		.pipe(dest(path.build.html))
-		.pipe(browserSync.stream())
+		.pipe(browserSync.reload({stream: true}))
+}
+
+function htmlMinify() {
+	return src(path.src.html)
+		.pipe(
+			fileinclude({
+				prefix: '@',
+				basepath: '@file',
+			})
+		)
+		.pipe(
+			htmlmin({
+				collapseWhitespace: true,
+			})
+		)
+		.pipe(dest(path.build.html))
+}
+
+function cssMinify() {
+	return src(path.src.css)
+		.pipe(sass())
+		.pipe(
+			cleanCss({
+				level: 2,
+			})
+		)
+		.pipe(dest(path.build.css))
+}
+
+function jsMinify() {
+	return src(path.src.js).pipe(uglify()).pipe(dest(path.build.js))
+}
+
+function imgMinify() {
+	return src(path.src.img)
+		.pipe(
+			imagemin([
+				imagemin.mozjpeg({
+					quality: 80,
+					progressive: true,
+				}),
+				imagemin.optipng({
+					optimizationLevel: 2,
+				}),
+			])
+		)
+		.pipe(dest(path.build.img))
 }
 
 function css() {
@@ -86,18 +130,7 @@ function css() {
 		)
 		.pipe(cssbeautify())
 		.pipe(dest(path.build.css))
-		.pipe(
-			cleanCss({
-				level: 2,
-			})
-		)
-		.pipe(
-			rename({
-				suffix: '.min',
-			})
-		)
-		.pipe(dest(path.build.css))
-		.pipe(browserSync.stream())
+		.pipe(browserSync.reload({stream: true}))
 }
 
 function js() {
@@ -121,26 +154,18 @@ function js() {
 			})
 		)
 		.pipe(dest(path.build.js))
-		.pipe(browserSync.stream())
+		.pipe(browserSync.reload({stream: true}))
 }
 
 function img() {
-	return src(path.src.img)
-		.pipe(
-			imagemin({
-				gifsicle: {interlaced: true},
-				mozjpeg: {quality: 80, progressive: true},
-				optipng: {optimizationLevel: 5},
-				svgo: {plugins: [{removeViewBox: true}, {cleanupIDs: false}]},
-			})
-		)
-		.pipe(dest(path.build.img))
+	return src(path.src.img).pipe(dest(path.build.img))
 }
 
 function webpImg() {
 	return src(path.src.img)
 		.pipe(webp())
 		.pipe(dest(distPath + 'assets/img/webp'))
+		.pipe(browserSync.reload({stream: true}))
 }
 
 function svg() {
@@ -175,31 +200,69 @@ function svg() {
 			})
 		)
 		.pipe(dest(path.build.svg))
+		.pipe(browserSync.reload({stream: true}))
 }
 
 function vendors() {
 	return src(path.src.vendors)
 		.pipe(dest(path.build.vendors))
-		.pipe(browserSync.stream())
+		.pipe(browserSync.reload({stream: true}))
 }
 
-function watchFiles() {
-	watch([path.src.css], css)
-	watch([path.src.html], html)
-	watch([path.src.js], js)
-	watch([path.src.img], img)
-	watch([path.src.vendors], vendors)
+function fonts() {
+	return src(path.src.fonts)
+		.pipe(dest(path.build.fonts))
+		.pipe(browserSync.reload({stream: true}))
 }
 
+// Other Tasks
 function clean() {
 	return del(path.clean)
 }
 
+function serve() {
+	browserSync.init({
+		server: {
+			baseDir: distPath,
+		},
+	})
+}
+
+function prod(done) {
+	!isProd
+	done()
+}
+
 const dev = series(
 	clean,
-	parallel(html, css, js, img, webpImg, svg, vendors),
+	parallel(html, css, js, img, webpImg, svg, vendors, fonts),
 	serve
 )
+const build = series(
+	clean,
+	parallel(
+		prod,
+		htmlMinify,
+		cssMinify,
+		jsMinify,
+		imgMinify,
+		webpImg,
+		svg,
+		vendors,
+		fonts
+	)
+)
+
+function watchFiles() {
+	watch([path.src.html], html)
+	watch([path.src.css], css)
+	watch([path.src.js], js)
+	watch([path.src.img], img)
+	watch([path.src.img], webp)
+	watch([path.src.svg], svg)
+	watch([path.src.vendors], vendors)
+	watch([path.src.fonts], fonts)
+}
 
 const runParallel = parallel(dev, watchFiles)
 
@@ -211,6 +274,8 @@ exports.webpImg = webpImg
 exports.svg = svg
 exports.dev = dev
 exports.vendors = vendors
-exports.default = runParallel
-
+exports.fonts = fonts
+exports.build = build
 exports.watchFiles = watchFiles
+
+exports.default = runParallel
