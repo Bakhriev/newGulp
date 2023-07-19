@@ -253,6 +253,8 @@ const build = series(
 	)
 )
 
+const preview = series(serve)
+
 function watchFiles() {
 	watch([path.src.html], html)
 	watch([path.src.css], css)
@@ -276,6 +278,7 @@ exports.dev = dev
 exports.vendors = vendors
 exports.fonts = fonts
 exports.build = build
+exports.preview = preview
 exports.watchFiles = watchFiles
 
 exports.default = runParallel

@@ -29,7 +29,8 @@
 	},
 	"scripts": {
 		"dev": "gulp",
-		"build": "gulp build"
+		"build": "gulp build",
+		"preview": "gulp preview"
 	},
 	"dependencies": {
 		"gulp-clean-css": "^4.3.0",
