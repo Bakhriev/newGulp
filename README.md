@@ -4,12 +4,12 @@
 
 Для запуска проекта установите зависимости с помощью npm или yarn:
 
-npm install
+npm install ->
 npm run dev
 
 или
 
-yarn
+yarn ->
 yarn dev
 
 ## SVG спрайт
