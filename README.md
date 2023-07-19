@@ -2,15 +2,15 @@
 
 ## Начало работы Getting Started
 
-Для запуска проекта установите зависимости с помощью npm или yarn:
+Для запуска проекта установите зависимости с помощью npm или yarn: <br>
 To start the project, install the dependencies using npm or yarn:
 
-npm install ->
+npm install <br>
 npm run dev
 
-или or
+или <br> or
 
-yarn ->
+yarn <br>
 yarn dev
 
 ## SVG спрайт
