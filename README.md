@@ -13,7 +13,7 @@ npm run dev
 yarn <br>
 yarn dev
 
-## SVG спрайт
+## SVG спрайт SVG Sprite
 
 SVG-иконки могут быть объединены в спрайт и находиться в папке src/assets/img/svg. При сборке проекта спрайт будет конвертирован в файл dist/assets/img/svg/sprite.svg.
 
