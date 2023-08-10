@@ -37,7 +37,7 @@ const path = {
 		fonts: distPath + 'assets/fonts',
 	},
 	src: {
-		html: srcPath + '/*.html',
+		html: srcPath + '*.html',
 		css: srcPath + 'assets/scss/**/*.scss',
 		js: srcPath + 'assets/js/*.js',
 		img: srcPath + 'assets/img/*.{jpg,jpeg,png,svg}',
@@ -257,6 +257,7 @@ const preview = series(serve)
 
 function watchFiles() {
 	watch([path.src.html], html)
+	watch([srcPath + 'assets/**/*.html'], html)
 	watch([path.src.css], css)
 	watch([path.src.js], js)
 	watch([path.src.img], img)

@@ -1,6 +1,7 @@
-// header
 .header {
 	padding: 20px 0;
+
+	// .header__container
 
 	&__container {
 		display: flex;
@@ -11,10 +12,14 @@
 		}
 	}
 
+	// .header__logo
+
 	&__logo {
 		display: block;
 		flex-shrink: 0;
 	}
+
+	// .header__navigation
 
 	&__navigation {
 		display: flex;
@@ -22,7 +27,7 @@
 		width: 100%;
 
 		&.active {
-			transform: translateY(0);
+			transform: translateX(0);
 		}
 
 		@media screen and (max-width: $medium) {
@@ -35,19 +40,29 @@
 			z-index: 10;
 
 			flex-direction: column;
-			gap: 30px;
+			gap: 20px;
 
 			max-width: 300px;
 
 			padding: 50px 0;
 
 			transform: translateX(100%);
-			transition: transform 0.6s ease-in-out;
-
+			transition: transform 300ms ease-in-out;
 			border-radius: 5px 0 0 5px;
 			background-color: $light;
 		}
 	}
+
+	// .header__nav
+
+	&__nav {
+		margin-left: auto;
+		@media screen and (max-width: $medium) {
+			margin-left: 0;
+		}
+	}
+
+	// .header__buttons
 
 	&__buttons {
 		margin-left: auto;
@@ -58,24 +73,22 @@
 		@media screen and (max-width: $medium) {
 			margin-left: 0;
 			flex-direction: column;
+			align-items: center;
 		}
 	}
 
+	// .header__btn
 	&__btn {
 		color: $dark;
 		@media screen and (max-width: $medium) {
 			color: $dark;
 		}
 	}
-
-	&__nav {
-		margin-left: auto;
-		@media screen and (max-width: $medium) {
-			margin-left: 0;
-		}
-	}
 }
+
 .nav {
+	// .nav__list
+
 	&__list {
 		display: flex;
 		align-items: center;
@@ -86,6 +99,13 @@
 			gap: 20px;
 		}
 	}
+
+	// .nav__item
+
+	&__item {
+	}
+
+	// .nav__link
 
 	&__link {
 		position: relative;
@@ -115,7 +135,8 @@
 			background: $dark;
 			border-radius: 5px;
 			transform: scaleX(0);
-			transition: transform 200ms ease-in-out;
+			@include trans(transform);
+
 			transform-origin: right bottom;
 		}
 	}

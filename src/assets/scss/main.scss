@@ -3,6 +3,8 @@
 
 // Sass-utils
 @import './sass-utils/variables';
+@import './sass-utils/center';
+@import './sass-utils/trans';
 @import './sass-utils/disable-mob-hover';
 @import './sass-utils/global';
 
@@ -22,77 +24,3 @@
 @import './layout/header';
 @import './layout/hero';
 @import './layout/footer';
-
-body {
-	background: gray;
-}
-
-.dropdown {
-	position: relative;
-
-	@include hover {
-		.dropdown__menu {
-			opacity: 1;
-			visibility: visible;
-			transform: translateY(30px);
-		}
-	}
-
-	&__btn {
-		position: relative;
-		padding-right: 28px;
-		&::after {
-			content: '';
-			position: absolute;
-			right: 0;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 20px;
-			height: 20px;
-			background: url('../img/svg/sprite.svg#arrow-next') no-repeat center/cover;
-		}
-	}
-
-	&__menu {
-		position: absolute;
-		left: -15px;
-		top: 0;
-		transform: translateY(45px);
-
-		opacity: 0;
-		visibility: hidden;
-
-		transition:
-			transform 0.2s ease,
-			visibility 0.2s ease,
-			opacity 0.2s ease;
-
-		padding: 5px;
-
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		z-index: 5;
-
-		background-color: black;
-		border-radius: 10px;
-	}
-
-	&__item {
-		position: relative;
-
-		border-radius: 8px;
-
-		transition: background-color 0.2s ease;
-
-		@include hover {
-			background-color: #222;
-		}
-	}
-
-	&__link {
-		display: block;
-		padding: 10px;
-		color: #fff;
-	}
-}

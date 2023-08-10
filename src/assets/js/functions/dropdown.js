@@ -1,25 +1,3 @@
-const burgerMenu = () => {
-	const burger = document.querySelector('.burger')
-	const navigation = document.querySelector('.header__navigation')
-	const overlay = document.querySelector('.overlay')
-	const elements = [burger, navigation, overlay]
-
-	const toggleActiveClass = () =>
-		elements.forEach(element => element.classList.toggle('active'))
-
-	burger.addEventListener('click', toggleActiveClass)
-
-	overlay.addEventListener('click', toggleActiveClass)
-
-	window.addEventListener('resize', () => {
-		const {innerWidth} = window
-		if (innerWidth > 991.98) {
-			elements.forEach(element => element.classList.remove('active'))
-		}
-	})
-}
-burgerMenu()
-
 const dropdownInit = () => {
 	const allDropdowns = document.querySelectorAll('[data-dropdown]')
 
@@ -36,12 +14,20 @@ const dropdownInit = () => {
 				dropdown.classList.remove('active')
 			})
 		})
+		allDropdowns.forEach(d => {
+			d.addEventListener('mouseover', () => {
+				d.classList.add('active')
+			})
+			d.addEventListener('mouseleave', () => {
+				d.classList.remove('active')
+			})
+		})
 	} else {
 		allDropdowns.forEach(drp => {
 			drp.addEventListener('click', () => {
-				const subMenu = drp.querySelector('.dropdown__menu')
+				const subMenu = drp.querySelector('.sub-menu')
 				if (!subMenu.style.maxHeight) {
-					const allSubMenus = document.querySelectorAll('.dropdown__menu')
+					const allSubMenus = document.querySelectorAll('.sub-menu')
 					allSubMenus.forEach(sub => {
 						sub.style.maxHeight = ''
 					})
@@ -53,5 +39,3 @@ const dropdownInit = () => {
 		})
 	}
 }
-
-dropdownInit()

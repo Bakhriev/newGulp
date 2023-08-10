@@ -15,6 +15,10 @@ body {
 	overflow: hidden;
 }
 
+.main {
+	flex-grow: 1;
+}
+
 // Container
 .container {
 	margin: 0 auto;
