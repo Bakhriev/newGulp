@@ -40,7 +40,7 @@ const path = {
 		html: srcPath + '*.html',
 		css: srcPath + 'assets/scss/**/*.scss',
 		js: srcPath + 'assets/js/*.js',
-		img: srcPath + 'assets/img/*.{jpg,jpeg,png,svg}',
+		img: srcPath + 'assets/img/**/*.{jpg,jpeg,png,svg}',
 		svg: srcPath + 'assets/img/svg/**/*.svg',
 		vendors: srcPath + 'assets/vendors/**/*.{css,js}',
 		fonts: srcPath + 'assets/fonts/**/*',
@@ -147,13 +147,6 @@ function js() {
 			})
 		)
 		.pipe(dest(path.build.js))
-		.pipe(uglify())
-		.pipe(
-			rename({
-				suffix: '.min',
-			})
-		)
-		.pipe(dest(path.build.js))
 		.pipe(browserSync.reload({stream: true}))
 }
 
@@ -162,7 +155,7 @@ function img() {
 }
 
 function webpImg() {
-	return src(path.src.img)
+	return src(srcPath + 'assets/img/**/*.{jpeg,jpg,png}')
 		.pipe(webp())
 		.pipe(dest(distPath + 'assets/img/webp'))
 		.pipe(browserSync.reload({stream: true}))
