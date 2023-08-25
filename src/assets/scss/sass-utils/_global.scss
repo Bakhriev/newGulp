@@ -1,8 +1,5 @@
 // Body
 body {
-	font-family: serif;
-	font-weight: 400;
-	font-size: 16px;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -28,5 +25,32 @@ body {
 }
 
 .disable-scroll {
-	overflow-y: hidden;
+	overflow: hidden !important;
+}
+
+.border-animate {
+	position: relative;
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -6px;
+
+		height: 1px;
+		width: 100%;
+
+		background: #000;
+		border-radius: 5px;
+		transform: scaleX(0);
+		@include trans(transform);
+
+		transform-origin: right bottom;
+	}
+
+	@include hover {
+		&::before {
+			transform: scaleX(1);
+			transform-origin: left bottom;
+		}
+	}
 }

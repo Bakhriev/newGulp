@@ -15,8 +15,6 @@
 	// .header__logo
 
 	&__logo {
-		display: block;
-		flex-shrink: 0;
 	}
 
 	// .header__navigation
@@ -33,23 +31,23 @@
 		@media screen and (max-width: $medium) {
 			position: fixed;
 			overflow-y: auto;
+			overflow-x: hidden;
 
 			right: 0;
 			top: 0;
-			bottom: 0;
-			z-index: 10;
+			height: 100%;
+			z-index: $menuIndex;
 
 			flex-direction: column;
 			gap: 20px;
 
 			max-width: 300px;
-
 			padding: 50px 0;
 
 			transform: translateX(100%);
 			transition: transform 300ms ease-in-out;
 			border-radius: 5px 0 0 5px;
-			background-color: $light;
+			background-color: #fff;
 		}
 	}
 
@@ -57,6 +55,7 @@
 
 	&__nav {
 		margin-left: auto;
+
 		@media screen and (max-width: $medium) {
 			margin-left: 0;
 		}
@@ -68,20 +67,19 @@
 		margin-left: auto;
 
 		display: flex;
+		align-items: center;
+
 		gap: 20px;
 
 		@media screen and (max-width: $medium) {
 			margin-left: 0;
 			flex-direction: column;
-			align-items: center;
 		}
 	}
 
 	// .header__btn
 	&__btn {
-		color: $dark;
 		@media screen and (max-width: $medium) {
-			color: $dark;
 		}
 	}
 }
@@ -92,52 +90,23 @@
 	&__list {
 		display: flex;
 		align-items: center;
+
 		gap: 50px;
 
 		@media screen and (max-width: $medium) {
 			flex-direction: column;
-			gap: 20px;
 		}
-	}
-
-	// .nav__item
-
-	&__item {
 	}
 
 	// .nav__link
 
 	&__link {
-		position: relative;
-		color: $dark;
-
 		@media screen and (max-width: $medium) {
-			color: $dark;
-		}
-
-		@include hover {
-			&::after {
-				transform: scaleX(1);
-				transform-origin: left bottom;
-			}
-			// color: $dark;
-		}
-
-		&::after {
-			content: '';
-			position: absolute;
-			left: 0;
-			bottom: -6px;
-
-			height: 1px;
-			width: 100%;
-
-			background: $dark;
-			border-radius: 5px;
-			transform: scaleX(0);
-			@include trans(transform);
-
-			transform-origin: right bottom;
 		}
 	}
+}
+
+.logo {
+	display: block;
+	flex-shrink: 0;
 }

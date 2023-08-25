@@ -18,6 +18,9 @@
 	// .dropdown__icon
 
 	&__icon {
+		width: 24px;
+		height: 24px;
+		@include trans(transform);
 	}
 
 	// .dropdown__menu
@@ -80,6 +83,9 @@
 		.dropdown__menu {
 			opacity: 1;
 			visibility: visible;
+		}
+		.dropdown__icon {
+			transform: rotate(90deg);
 		}
 	}
 }
