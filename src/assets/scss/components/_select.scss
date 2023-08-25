@@ -1,0 +1,66 @@
+$selectRadius: 6px;
+
+.select {
+	display: inline-block;
+	position: relative;
+	z-index: 2;
+	min-width: 100px;
+
+	&.active {
+		.select-menu {
+			transform: translateY(0);
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	&__toggle {
+		position: relative;
+		z-index: 2;
+		width: 100%;
+
+		// 	not required
+		border: 1px solid black;
+		border-radius: $selectRadius;
+		padding: 5px 10px;
+		background-color: #fff;
+		font-size: 20px;
+	}
+}
+
+.select-menu {
+	position: absolute;
+	z-index: 1;
+	top: calc(100% + 10px);
+	left: 0;
+	min-width: 100%;
+	transform: translateY(-10px);
+	visibility: hidden;
+	opacity: 0;
+	@include trans(transform, opacity, visibility);
+
+	// 	Not required
+	border: 1px solid black;
+	border-radius: $selectRadius;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	background-color: #fff;
+
+	&__item {
+		cursor: pointer;
+
+		// 	Not required
+		border-radius: inherit;
+		transition:
+			background-color 300ms ease,
+			color 300ms ease;
+		font-size: 20px;
+		padding: 5px;
+		@include hover {
+			background-color: #2c303a;
+			color: #fff;
+		}
+	}
+}
