@@ -6,12 +6,9 @@
 @import './sass-utils/center';
 @import './sass-utils/trans';
 @import './sass-utils/disable-mob-hover';
-@import './sass-utils/global';
 
-// UI
-// UI / Buttons
-@import '../../../ui/buttons/epic/epic-btn.scss';
-@import '../../../ui/buttons/shiny/shiny-btn.scss';
+// Global
+@import './sass-utils/global';
 
 // UI / DROPDOWN
 @import '../../../ui/dropdown/dropdown.scss';

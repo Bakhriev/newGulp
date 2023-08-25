@@ -1,13 +1,14 @@
 html {
 	line-height: 1.15; /* 1 */
 	-webkit-text-size-adjust: 100%; /* 2 */
-	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
+	box-sizing: border-box;
 }
 
 p {
@@ -17,6 +18,7 @@ p {
 img {
 	display: block;
 	max-width: 100%;
+	height: auto;
 }
 
 body {

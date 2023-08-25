@@ -26,3 +26,7 @@ body {
 	max-width: 1430px;
 	padding: 0 15px;
 }
+
+.disable-scroll {
+	overflow-y: hidden;
+}

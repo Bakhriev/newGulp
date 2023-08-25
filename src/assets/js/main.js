@@ -3,9 +3,12 @@ const burgerMenu = () => {
 	const navigation = document.querySelector('.header__navigation')
 	const overlay = document.querySelector('.overlay')
 	const elements = [burger, navigation, overlay]
+	const body = document.querySelector('body')
 
-	const toggleActiveClass = () =>
+	const toggleActiveClass = () => {
 		elements.forEach(element => element.classList.toggle('active'))
+		body.classList.toggle('disable-scroll')
+	}
 
 	burger.addEventListener('click', toggleActiveClass)
 
@@ -15,10 +18,10 @@ const burgerMenu = () => {
 		const {innerWidth} = window
 		if (innerWidth > 991.98) {
 			elements.forEach(element => element.classList.remove('active'))
+			body.classList.remove('disable-scroll')
 		}
 	})
 }
-burgerMenu()
 
 const dropdownInit = () => {
 	const allDropdowns = document.querySelectorAll('[data-dropdown]')
@@ -53,5 +56,7 @@ const dropdownInit = () => {
 		})
 	}
 }
+
+burgerMenu()
 
 dropdownInit()
