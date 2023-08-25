@@ -29,8 +29,7 @@
 		position: absolute;
 
 		top: calc(100% + 15px);
-		left: 50%;
-		transform: translateX(-50%);
+		left: 0;
 
 		background-color: #817c7c;
 
@@ -46,12 +45,14 @@
 			position: relative;
 			transform: translateX(0);
 			left: 0;
-			top: 10px;
+			top: 0;
 			max-height: 0;
 			overflow: hidden;
 			opacity: 1;
 			visibility: visible;
+			margin-top: 10px;
 			@include trans(max-height);
+			background-color: #e6e7e8;
 		}
 	}
 
@@ -74,7 +75,10 @@
 			color: #727171;
 		}
 		&:active {
-			background-color: #e6e7e8;
+			background-color: #aeb1b4;
+		}
+		@media screen and (max-width: 992px) {
+			color: #000;
 		}
 	}
 }
