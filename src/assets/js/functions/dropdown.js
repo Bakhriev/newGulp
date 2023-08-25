@@ -1,4 +1,4 @@
-const dropdownInit = () => {
+export const dropdownInit = () => {
 	const allDropdowns = document.querySelectorAll('[data-dropdown]')
 
 	if (window.innerWidth > 992.98) {
@@ -14,20 +14,12 @@ const dropdownInit = () => {
 				dropdown.classList.remove('active')
 			})
 		})
-		allDropdowns.forEach(d => {
-			d.addEventListener('mouseover', () => {
-				d.classList.add('active')
-			})
-			d.addEventListener('mouseleave', () => {
-				d.classList.remove('active')
-			})
-		})
 	} else {
 		allDropdowns.forEach(drp => {
 			drp.addEventListener('click', () => {
-				const subMenu = drp.querySelector('.sub-menu')
+				const subMenu = drp.querySelector('.dropdown__menu')
 				if (!subMenu.style.maxHeight) {
-					const allSubMenus = document.querySelectorAll('.sub-menu')
+					const allSubMenus = document.querySelectorAll('.dropdown__menu')
 					allSubMenus.forEach(sub => {
 						sub.style.maxHeight = ''
 					})

@@ -6,6 +6,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"browser-sync": "2.27.10",
+		"css-loader": "^6.8.1",
 		"del": "6.0.0",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
@@ -13,6 +14,7 @@
 		"gulp-concat": "^2.6.1",
 		"gulp-cssbeautify": "^3.0.1",
 		"gulp-file-include": "^2.3.0",
+		"gulp-group-css-media-queries": "^1.2.2",
 		"gulp-htmlmin": "^5.0.1",
 		"gulp-imagemin": "7.1.0",
 		"gulp-notify": "^4.0.0",
@@ -25,7 +27,10 @@
 		"gulp-uglify": "^3.0.2",
 		"gulp-webp": "4.0.1",
 		"node-sass": "^9.0.0",
-		"prettier": "^3.0.1"
+		"prettier": "^3.0.1",
+		"style-loader": "^3.3.3",
+		"webpack": "^5.88.2",
+		"webpack-stream": "^7.0.0"
 	},
 	"scripts": {
 		"dev": "gulp",

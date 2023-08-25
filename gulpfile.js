@@ -21,6 +21,12 @@ const cheerio = require('gulp-cheerio')
 const replace = require('gulp-replace')
 const imagemin = require('gulp-imagemin')
 const webp = require('gulp-webp')
+const gcmq = require('gulp-group-css-media-queries')
+
+// New
+const webpack = require('webpack-stream')
+const cssLoader = require('css-loader')
+const styleLoader = require('style-loader')
 
 // Paths
 const srcPath = 'src/'
@@ -81,6 +87,7 @@ function htmlMinify() {
 function cssMinify() {
 	return src(path.src.css)
 		.pipe(sass())
+		.pipe(gcmq())
 		.pipe(
 			cleanCss({
 				level: 2,
@@ -128,6 +135,7 @@ function css() {
 				cascade: false,
 			})
 		)
+
 		.pipe(cssbeautify())
 		.pipe(dest(path.build.css))
 		.pipe(browserSync.reload({stream: true}))
@@ -146,6 +154,7 @@ function js() {
 				},
 			})
 		)
+		.pipe(webpack(require('./webpack.config')))
 		.pipe(dest(path.build.js))
 		.pipe(browserSync.reload({stream: true}))
 }
@@ -290,6 +299,7 @@ function watchFiles() {
 	watch([srcPath + 'assets/**/*.html'], html)
 	watch([path.src.css], css)
 	watch([path.src.js], js)
+	watch([srcPath + 'assets/js/**/*.js'], js)
 	watch([path.src.img], img)
 	watch([path.src.img], webp)
 	watch([path.src.svg], svg)
