@@ -1,0 +1,4 @@
+		<script
+			src="https://api-maps.yandex.ru/2.1/?apikey=d2e7de80-a199-4b25-983d-853e11739ee8&lang=ru_RU"
+			type="text/javascript"
+		></script>
