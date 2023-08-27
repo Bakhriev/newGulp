@@ -1,14 +1,12 @@
-html {
-	line-height: 1.15; /* 1 */
-	-webkit-text-size-adjust: 100%; /* 2 */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
+}
+
+html {
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
 }
 
 p {
@@ -40,13 +38,11 @@ a {
 }
 
 button {
-	display: inline-block;
 	padding: 0;
-	width: max-content;
-
 	font: inherit;
 	cursor: pointer;
 	border: none;
+	outline: none;
 	background-color: transparent;
 }
 

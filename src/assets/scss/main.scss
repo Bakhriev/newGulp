@@ -1,6 +1,9 @@
 // Base
 @import './base/reset';
 
+// Font
+@import './fonts/fonts';
+
 // Sass-utils
 @import './sass-utils/variables';
 @import './sass-utils/center';
@@ -11,17 +14,10 @@
 @import './sass-utils/global';
 
 // UI / DROPDOWN
-@import './components/dropdown';
-
-//Components
 @import './components/overlay';
 @import './components/burger';
-@import './components/select';
-@import './components/ymaps';
 
 // Layouts
 @import './layout/header';
 @import './layout/hero';
 @import './layout/footer';
-
-
