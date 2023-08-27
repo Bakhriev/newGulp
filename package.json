@@ -11,6 +11,7 @@
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
 		"gulp-cheerio": "^1.0.0",
+		"gulp-clean-css": "^4.3.0",
 		"gulp-concat": "^2.6.1",
 		"gulp-cssbeautify": "^3.0.1",
 		"gulp-file-include": "^2.3.0",
@@ -37,8 +38,5 @@
 		"build": "gulp build",
 		"preview": "gulp preview"
 	},
-	"dependencies": {
-		"gulp-clean-css": "^4.3.0",
-		"l": "^0.6.0"
-	}
+	"dependencies": {}
 }

@@ -1,3 +1,3 @@
-import {burgerMenu} from './functions/burger'
+import fslightbox from 'fslightbox'
 
-burgerMenu()
+

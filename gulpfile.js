@@ -38,6 +38,7 @@ const path = {
 		css: distPath + 'assets/css',
 		js: distPath + 'assets/js',
 		img: distPath + 'assets/img',
+		video: distPath + 'assets/video',
 		svg: distPath + 'assets/img/svg',
 		vendors: distPath + 'assets/vendors',
 		fonts: distPath + 'assets/fonts',
@@ -47,6 +48,7 @@ const path = {
 		css: srcPath + 'assets/scss/**/*.scss',
 		js: srcPath + 'assets/js/*.js',
 		img: srcPath + 'assets/img/**/*.{jpg,jpeg,png,svg}',
+		video: srcPath + 'assets/video/**/*',
 		svg: srcPath + 'assets/img/svg/**/*.svg',
 		vendors: srcPath + 'assets/vendors/**/*.{css,js}',
 		fonts: srcPath + 'assets/fonts/**/*',
@@ -166,6 +168,10 @@ function img() {
 	return src(path.src.img).pipe(dest(path.build.img))
 }
 
+function video() {
+	return src(path.src.video).pipe(dest(path.build.video))
+}
+
 function webpImg() {
 	return src(srcPath + 'assets/img/**/*.{jpeg,jpg,png}')
 		.pipe(webp())
@@ -208,43 +214,6 @@ function svg() {
 		.pipe(browserSync.reload({stream: true}))
 }
 
-// function svg() {
-// 	return (
-// 		src(path.src.svg)
-// 			.pipe(
-// 				svgmin({
-// 					js2svg: {
-// 						pretty: true,
-// 					},
-// 				})
-// 			)
-// 			.pipe(
-// 				cheerio({
-// 					run: function ($) {
-// 						$('[fill]').removeAttr('fill')
-// 						$('[stroke]').removeAttr('stroke')
-// 						$('[style]').removeAttr('style')
-// 					},
-// 					parserOptions: {
-// 						xmlMode: true,
-// 					},
-// 				})
-// 			)
-// 			.pipe(replace('&gt;', '>'))
-// 			.pipe(
-// 				svgSprite({
-// 					mode: {
-// 						stack: {
-// 							sprite: '../sprite.svg',
-// 						},
-// 					},
-// 				})
-// 			)
-// 			.pipe(dest(path.build.svg))
-// 			.pipe(browserSync.reload({stream: true}))
-// 	)
-// }
-
 function vendors() {
 	return src(path.src.vendors)
 		.pipe(dest(path.build.vendors))
@@ -277,7 +246,7 @@ function prod(done) {
 
 const dev = series(
 	clean,
-	parallel(html, css, js, img, webpImg, svg, vendors, fonts),
+	parallel(html, css, js, img, video, webpImg, svg, vendors, fonts),
 	serve
 )
 const build = series(
@@ -288,6 +257,7 @@ const build = series(
 		cssMinify,
 		jsMinify,
 		imgMinify,
+		video,
 		webpImg,
 		svg,
 		vendors,
@@ -304,6 +274,7 @@ function watchFiles() {
 	watch([path.src.js], js)
 	watch([srcPath + 'assets/js/**/*.js'], js)
 	watch([path.src.img], img)
+	watch([path.src.video], video)
 	watch([path.src.img], webp)
 	watch([path.src.svg], svg)
 	watch([path.src.vendors], vendors)
@@ -316,6 +287,7 @@ exports.html = html
 exports.css = css
 exports.js = js
 exports.img = img
+exports.video = video
 exports.webpImg = webpImg
 exports.svg = svg
 exports.dev = dev
