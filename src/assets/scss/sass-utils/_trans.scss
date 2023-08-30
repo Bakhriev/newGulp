@@ -5,7 +5,7 @@
 		@if $property != null {
 			$transitionList: append(
 				$transitionList,
-				unquote('#{$property} 150ms ease-in-out'),
+				unquote('#{$property} 300ms ease-in-out'),
 				comma
 			);
 		}
