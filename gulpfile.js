@@ -181,35 +181,6 @@ function webpImg() {
 
 function svg() {
 	return src(path.src.svg)
-		.pipe(
-			svgmin({
-				js2svg: {
-					pretty: true,
-				},
-			})
-		)
-		.pipe(
-			cheerio({
-				run: function ($) {
-					$('[fill]').removeAttr('fill')
-					$('[stroke]').removeAttr('stroke')
-					$('[style]').removeAttr('style')
-				},
-				parserOptions: {
-					xmlMode: true,
-				},
-			})
-		)
-		.pipe(replace('&gt;', '>'))
-		.pipe(
-			svgSprite({
-				mode: {
-					stack: {
-						sprite: '../sprite.svg',
-					},
-				},
-			})
-		)
 		.pipe(dest(path.build.svg))
 		.pipe(browserSync.reload({stream: true}))
 }
