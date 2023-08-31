@@ -1,0 +1,15 @@
+@mixin trans($properties...) {
+	$transitionList: ();
+
+	@each $property in $properties {
+		@if $property != null {
+			$transitionList: append(
+				$transitionList,
+				unquote('#{$property} 300ms ease-in-out'),
+				comma
+			);
+		}
+	}
+
+	transition: $transitionList;
+}

@@ -1,10 +1,13 @@
+const path = require('path')
 const config = {
 	mode: 'production',
 	entry: {
-		index: './src/assets/js/main.js',
+		contact: './src/assets/js/contact/contact.js',
+		main: './src/assets/js/main/main.js',
+		// Другие точки входа...
 	},
 	output: {
-		filename: 'main.js',
+		filename: '[name].js',
 	},
 	module: {
 		rules: [
