@@ -1,8 +1,18 @@
+$selectRadius: 6px;
+
 .select {
 	display: inline-block;
 	position: relative;
 	z-index: 2;
 	min-width: 100px;
+
+	&.active {
+		.select-menu {
+			transform: translateY(0);
+			visibility: visible;
+			opacity: 1;
+		}
+	}
 
 	&__toggle {
 		position: relative;
@@ -11,17 +21,10 @@
 
 		// 	not required
 		border: 1px solid black;
-		border-radius: var(--selectRadius);
+		border-radius: $selectRadius;
 		padding: 5px 10px;
 		background-color: #fff;
 		font-size: 20px;
-	}
-}
-.select.active {
-	.select-menu {
-		transform: translateY(0);
-		visibility: visible;
-		opacity: 1;
 	}
 }
 
@@ -38,7 +41,7 @@
 
 	// 	Not required
 	border: 1px solid black;
-	border-radius: var(--selectRadius);
+	border-radius: $selectRadius;
 	padding: 5px;
 	display: flex;
 	flex-direction: column;

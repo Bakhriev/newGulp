@@ -1,30 +1,45 @@
-const swiper = new Swiper('.swiper', {
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'fraction',
-  },
-  slidesPerView: 1,
-  slidesPerGroup: 1,
-})
+// core version + navigation, pagination modules:
+import Swiper from 'swiper'
+import {Navigation, Pagination, Scrollbar, Autoplay} from 'swiper/modules'
+// import Swiper and modules styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
 
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'vertical',
-  loop: true,
+const swiper = new Swiper('.swiper-1', {
+	direction: 'horizontal',
+	spaceBetween: 20,
 
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
+	breakpoints: {
+		320: {
+			slidesPerView: 1,
+		},
+		768: {
+			slidesPerView: 2,
+		},
+		1200: {
+			slidesPerView: 3,
+		},
+	},
 
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+	// Modules
+	modules: [Navigation, Pagination, Autoplay],
 
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
+	// If we need pagination
+	pagination: {
+		el: '.swiper-pagination',
+		clickable: true,
+	},
+
+	// Navigation arrows
+	navigation: {
+		nextEl: '.custom-next',
+		prevEl: '.custom-prev',
+	},
+
+	// And if we need scrollbar
+	scrollbar: {
+		el: '.swiper-scrollbar',
+	},
 })
