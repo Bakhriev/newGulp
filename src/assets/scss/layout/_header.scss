@@ -6,15 +6,11 @@
 	&__container {
 		display: flex;
 		align-items: center;
+		gap: 20px;
 
 		@media screen and (max-width: $medium) {
 			justify-content: space-between;
 		}
-	}
-
-	// .header__logo
-
-	&__logo {
 	}
 
 	// .header__navigation
@@ -30,23 +26,26 @@
 
 		@media screen and (max-width: $medium) {
 			position: fixed;
+			right: 0;
+			top: 0;
+
+			flex-direction: column;
+			height: 100%;
+
 			overflow-y: auto;
 			overflow-x: hidden;
 
-			right: 0;
-			top: 0;
-			height: 100%;
-			z-index: $menuIndex;
-
-			flex-direction: column;
-			gap: 20px;
-
-			max-width: 300px;
-			padding: 50px 0;
+			// $burgerIndex: 4;
+			// $mobileMenuIndex: 3;
+			// $overlayIndex: 2;
+			z-index: $mobileMenuIndex;
 
 			transform: translateX(100%);
 			transition: transform 300ms ease-in-out;
-			border-radius: 5px 0 0 5px;
+
+			// change
+			max-width: 300px;
+			padding: 50px 15px 20px 15px;
 			background-color: #fff;
 		}
 	}
@@ -90,12 +89,12 @@
 	&__list {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 
-		gap: 50px;
+		gap: 20px 20px;
 
 		@media screen and (max-width: $medium) {
 			flex-direction: column;
-			padding: 0 20px;
 		}
 	}
 

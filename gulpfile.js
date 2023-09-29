@@ -135,12 +135,12 @@ function css() {
 			})
 		)
 		.pipe(sass())
+		.pipe(gcmq())
 		.pipe(
 			autoprefixer({
 				cascade: false,
 			})
 		)
-
 		.pipe(cssbeautify())
 		.pipe(dest(path.build.css))
 		.pipe(browserSync.reload({stream: true}))

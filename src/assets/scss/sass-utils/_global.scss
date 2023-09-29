@@ -44,19 +44,14 @@ body {
 		transform: scaleX(0);
 		@include trans(transform);
 
-		transform-origin: right bottom;
+		// transform-origin: right bottom;
+		transform-origin: center;
 	}
 
 	@include hover {
 		&::before {
 			transform: scaleX(1);
-			transform-origin: left bottom;
+			// transform-origin: left bottom;
 		}
 	}
-}
-
-.reset-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
 }

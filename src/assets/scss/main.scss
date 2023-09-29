@@ -6,9 +6,7 @@
 
 // Sass-utils
 @import './sass-utils/variables';
-@import './sass-utils/center';
-@import './sass-utils/trans';
-@import './sass-utils/disable-mob-hover';
+@import './sass-utils/helpers';
 
 // Global
 @import './sass-utils/global';
@@ -21,4 +19,3 @@
 @import './layout/header';
 @import './layout/hero';
 @import './layout/footer';
-

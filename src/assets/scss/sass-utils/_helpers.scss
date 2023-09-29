@@ -1,0 +1,30 @@
+@mixin center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+}
+
+@mixin trans($properties...) {
+	$transitionList: ();
+
+	@each $property in $properties {
+		@if $property != null {
+			$transitionList: append(
+				$transitionList,
+				unquote('#{$property} 300ms ease-in-out'),
+				comma
+			);
+		}
+	}
+
+	transition: $transitionList;
+}
+
+@mixin hover {
+	@media (any-hover: hover) and (pointer: fine) {
+		&:hover {
+			@content;
+		}
+	}
+}
