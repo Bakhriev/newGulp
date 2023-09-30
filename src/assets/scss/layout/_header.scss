@@ -24,6 +24,7 @@
 			transform: translateX(0);
 		}
 
+		// Mobile Menu Styles
 		@media screen and (max-width: $medium) {
 			position: fixed;
 			right: 0;
