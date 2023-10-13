@@ -9,6 +9,7 @@
 	cursor: pointer;
 	background-color: transparent;
 	z-index: $burgerIndex;
+	border: none;
 
 	@media screen and (max-width: $medium) {
 		display: flex;

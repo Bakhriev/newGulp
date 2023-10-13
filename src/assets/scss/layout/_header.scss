@@ -6,20 +6,19 @@
 	&__container {
 		display: flex;
 		align-items: center;
-		gap: 20px;
+		justify-content: space-between;
 
-		@media screen and (max-width: $medium) {
-			justify-content: space-between;
-		}
+		gap: 20px;
+	}
+
+	// .header__logo
+
+	&__logo {
 	}
 
 	// .header__navigation
 
 	&__navigation {
-		display: flex;
-		align-items: center;
-		width: 100%;
-
 		&.active {
 			transform: translateX(0);
 		}
@@ -30,23 +29,21 @@
 			right: 0;
 			top: 0;
 
-			flex-direction: column;
+			max-width: 320px;
+			min-width: 300px;
+
+			width: 100%;
 			height: 100%;
+			padding: 50px 15px 20px 15px;
 
 			overflow-y: auto;
 			overflow-x: hidden;
 
-			// $burgerIndex: 4;
-			// $mobileMenuIndex: 3;
-			// $overlayIndex: 2;
 			z-index: $mobileMenuIndex;
 
 			transform: translateX(100%);
 			transition: transform 300ms ease-in-out;
 
-			// change
-			max-width: 300px;
-			padding: 50px 15px 20px 15px;
 			background-color: #fff;
 		}
 	}
@@ -54,33 +51,6 @@
 	// .header__nav
 
 	&__nav {
-		margin-left: auto;
-
-		@media screen and (max-width: $medium) {
-			margin-left: 0;
-		}
-	}
-
-	// .header__buttons
-
-	&__buttons {
-		margin-left: auto;
-
-		display: flex;
-		align-items: center;
-
-		gap: 20px;
-
-		@media screen and (max-width: $medium) {
-			margin-left: 0;
-			flex-direction: column;
-		}
-	}
-
-	// .header__btn
-	&__btn {
-		@media screen and (max-width: $medium) {
-		}
 	}
 }
 
@@ -88,6 +58,10 @@
 	// .nav__list
 
 	&__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
@@ -102,6 +76,7 @@
 	// .nav__link
 
 	&__link {
+		text-decoration: none;
 		@media screen and (max-width: $medium) {
 		}
 	}
