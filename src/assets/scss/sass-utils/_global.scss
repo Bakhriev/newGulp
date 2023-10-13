@@ -45,7 +45,7 @@ body {
 		background: #000;
 		border-radius: 5px;
 		transform: scaleX(0);
-		@include trans(transform);
+		transition: transform 250ms ease-in-out;
 
 		// transform-origin: right bottom;
 		transform-origin: center;
@@ -69,4 +69,9 @@ body {
 	clip: rect(0, 0, 0, 0) !important;
 	white-space: nowrap !important;
 	border: 0 !important;
+}
+
+.logo {
+	display: block;
+	flex-shrink: 0;
 }

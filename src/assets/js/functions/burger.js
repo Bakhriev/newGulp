@@ -1,6 +1,6 @@
 export const burgerMenu = () => {
 	const burger = document.querySelector('.burger')
-	const mobileMenu = document.querySelector('.header__navigation')
+	const mobileMenu = document.querySelector('.mobile-menu')
 	const overlay = document.querySelector('.overlay')
 	const body = document.querySelector('body')
 
