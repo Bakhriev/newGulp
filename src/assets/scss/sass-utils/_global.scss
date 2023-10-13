@@ -5,10 +5,13 @@ body {
 .wrapper {
 	min-height: 100vh;
 
-	display: grid;
-	grid-template-rows: auto 1fr auto;
+	display: flex;
+	flex-direction: column;
 
 	overflow: hidden;
+}
+.main {
+	flex-grow: 1;
 }
 
 .container {
@@ -18,10 +21,12 @@ body {
 	padding: 0 15px;
 }
 
+// on open some modals
 .disable-scroll {
 	overflow: hidden !important;
 }
 
+// Border on hover
 .border-bottom-line {
 	position: relative;
 	&::before {

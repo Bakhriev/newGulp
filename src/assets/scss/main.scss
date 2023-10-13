@@ -1,21 +1,19 @@
-// Base
+// base
 @import './base/reset';
 
-// Font
+// fonts
 @import './fonts/fonts';
 
-// Sass-utils
+// sass-utils
 @import './sass-utils/variables';
-@import './sass-utils/helpers';
-
-// Global
+@import './sass-utils/mixins';
 @import './sass-utils/global';
 
-// UI / DROPDOWN
+// components
 @import './components/overlay';
 @import './components/burger';
 
-// Layouts
+// layouts
 @import './layout/header';
 @import './layout/hero';
 @import './layout/footer';
