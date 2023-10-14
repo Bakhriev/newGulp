@@ -19,6 +19,9 @@
 
 	// Mobile Menu Styles
 	@media screen and (max-width: $medium) {
+		display: flex;
+		flex-direction: column;
+
 		position: fixed;
 		right: 0;
 		top: 0;
