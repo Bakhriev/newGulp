@@ -19,6 +19,7 @@
 		"gulp-notify": "^4.0.0",
 		"gulp-plumber": "^1.2.1",
 		"gulp-sass": "^5.1.0",
+		"gulp-svg-sprite": "^2.0.3",
 		"gulp-svgmin": "^4.1.0",
 		"gulp-uglify": "^3.0.2",
 		"gulp-webp": "4.0.1",

@@ -14,6 +14,8 @@ const htmlmin = require('gulp-htmlmin')
 const del = require('del')
 const uglify = require('gulp-uglify')
 const imagemin = require('gulp-imagemin')
+var svgSprite = require('gulp-svg-sprite')
+const cheerio = require('gulp-cheerio')
 const webp = require('gulp-webp')
 const gcmq = require('gulp-group-css-media-queries')
 
@@ -173,8 +175,23 @@ function webpImg() {
 		.pipe(browserSync.reload({stream: true}))
 }
 
+// function svg() {
+// 	return src(path.src.svg)
+// 		.pipe(dest(path.build.svg))
+// 		.pipe(browserSync.reload({stream: true}))
+// }
+
 function svg() {
 	return src(path.src.svg)
+		.pipe(
+			svgSprite({
+				mode: {
+					symbol: {
+						sprite: '../sprite.svg',
+					},
+				},
+			})
+		)
 		.pipe(dest(path.build.svg))
 		.pipe(browserSync.reload({stream: true}))
 }
