@@ -15,7 +15,6 @@ const del = require('del')
 const uglify = require('gulp-uglify')
 const imagemin = require('gulp-imagemin')
 var svgSprite = require('gulp-svg-sprite')
-const cheerio = require('gulp-cheerio')
 const webp = require('gulp-webp')
 const gcmq = require('gulp-group-css-media-queries')
 
