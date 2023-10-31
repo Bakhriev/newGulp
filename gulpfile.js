@@ -58,7 +58,7 @@ function html() {
 		.pipe(
 			fileinclude({
 				prefix: '@',
-				basepath: 'src',
+				basepath: '@file',
 			})
 		)
 		.pipe(dest(path.build.html))
