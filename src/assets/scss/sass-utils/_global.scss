@@ -6,16 +6,13 @@ body {
 }
 
 .wrapper {
+	@include flex-column;
 	min-height: 100vh;
-
-	display: flex;
-	flex-direction: column;
-
 	overflow: hidden;
 }
 
 .main {
-	flex-grow: 1;
+	flex: 1;
 }
 
 .container {

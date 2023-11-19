@@ -39,3 +39,62 @@
 		@warn 'Invalid breakpoint: #{$breakpoint}.';
 	}
 }
+
+@mixin text-shorten($numLines: 1) {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	@supports (-webkit-line-clamp: $numLines) {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: initial;
+		display: -webkit-box;
+		-webkit-line-clamp: $numLines;
+		-webkit-box-orient: vertical;
+	}
+}
+
+@mixin flex-center-vert {
+	display: flex;
+	align-items: center;
+}
+
+@mixin flex-center-vert-wrap {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin flex-center-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+@mixin flex-center-column {
+	@include flex-center;
+	flex-direction: column;
+}
+
+@mixin flex-center-vert-column {
+	@include flex-center-vert;
+	flex-direction: column;
+}
+
+@mixin flex-center-horiz {
+	display: flex;
+	justify-content: center;
+}
