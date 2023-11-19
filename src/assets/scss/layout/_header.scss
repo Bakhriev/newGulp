@@ -18,7 +18,7 @@
 	}
 
 	// Mobile Menu Styles
-	@media screen and (max-width: $medium) {
+	@include breakpoint(md) {
 		display: flex;
 		flex-direction: column;
 
@@ -55,7 +55,6 @@
 	flex-wrap: wrap;
 
 	gap: 20px 20px;
-	// .nav-menu__link
 
 	&__link {
 		text-decoration: none;

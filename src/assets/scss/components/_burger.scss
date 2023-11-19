@@ -11,7 +11,7 @@
 	z-index: $burgerIndex;
 	border: none;
 
-	@media screen and (max-width: $medium) {
+	@include breakpoint(md) {
 		display: flex;
 	}
 

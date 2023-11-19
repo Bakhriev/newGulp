@@ -5,6 +5,8 @@
 Для запуска проекта установите зависимости с помощью npm или yarn: <br>
 To start the project, install the dependencies using npm or yarn:
 
+Scripts: dev, build, preview -> for preview build version.
+
 npm install <br>
 npm run dev
 
@@ -18,3 +20,5 @@ yarn dev
 <svg>
     <use xlink:href="assets/img/svg/sprite.svg#arrow"></use>
 </svg>
+
+## Telegram @nfithr
