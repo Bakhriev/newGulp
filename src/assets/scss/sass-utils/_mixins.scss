@@ -1,10 +1,3 @@
-@mixin center {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	translate: -50% -50%;
-}
-
 @mixin transition($properties...) {
 	$transitionList: ();
 
@@ -55,20 +48,24 @@
 	}
 }
 
-@mixin flex-center-vert {
-	display: flex;
-	align-items: center;
+@mixin list-reset {
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
-@mixin flex-center-vert-wrap {
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
+@mixin btn-reset {
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
 }
 
-@mixin flex-column {
-	display: flex;
-	flex-direction: column;
+@mixin center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
 }
 
 @mixin flex-center {
@@ -77,21 +74,9 @@
 	justify-content: center;
 }
 
-@mixin flex-center-wrap {
+@mixin flex-center-vert {
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-
-@mixin flex-center-column {
-	@include flex-center;
-	flex-direction: column;
-}
-
-@mixin flex-center-vert-column {
-	@include flex-center-vert;
-	flex-direction: column;
 }
 
 @mixin flex-center-horiz {
