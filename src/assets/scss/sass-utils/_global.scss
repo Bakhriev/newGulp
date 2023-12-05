@@ -16,6 +16,11 @@ body {
 	flex: 1;
 }
 
+.logo {
+	display: block;
+	flex-shrink: 0;
+}
+
 .container {
 	margin: 0 auto;
 
@@ -69,7 +74,18 @@ body {
 	border: 0 !important;
 }
 
-.logo {
-	display: block;
-	flex-shrink: 0;
+.btn-reset {
+	padding: 0;
+	cursor: pointer;
+
+	font: inherit;
+	color: inherit;
+	border: none;
+	background-color: transparent;
+}
+
+.list-reset {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }

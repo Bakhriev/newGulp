@@ -24,7 +24,7 @@
 			transition:
 				top 0.2s ease-out,
 				transform 0.2s 0.2s ease-out;
-			background-color: $burgerActiveColor;
+			background-color: var(--burger-active);
 		}
 
 		&::before {
@@ -49,7 +49,7 @@
 			0.2s ease-in-out,
 			top 0.2s 0.2s ease-out,
 			transform 0.2s linear;
-		background-color: $burgerColor;
+		background-color: var(--burger-default);
 
 		&::before,
 		&::after {
@@ -57,7 +57,7 @@
 			position: absolute;
 			height: 2px;
 			width: 26px;
-			background-color: $burgerColor;
+			background-color: var(--burger-default);
 			transform-origin: 50% 50%;
 			transition:
 				0.2s ease-in-out,

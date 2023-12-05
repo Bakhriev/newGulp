@@ -1,6 +1,7 @@
-//Burger Colors
-$burgerColor: #222;
-$burgerActiveColor: #222;
+:root {
+	--burger-default: #222;
+	--burger-active: #222;
+}
 
 $breakpoints: (
 	'xs': 400px,
@@ -11,9 +12,6 @@ $breakpoints: (
 	'xxl': 1440px,
 );
 
-// z-index
 $burgerIndex: 4;
 $mobileMenuIndex: 3;
 $overlayIndex: 2;
-
-// Colors
