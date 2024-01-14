@@ -174,12 +174,6 @@ function webpImg() {
 		.pipe(browserSync.reload({stream: true}))
 }
 
-// function svg() {
-// 	return src(path.src.svg)
-// 		.pipe(dest(path.build.svg))
-// 		.pipe(browserSync.reload({stream: true}))
-// }
-
 function svg() {
 	return src(path.src.svg)
 		.pipe(

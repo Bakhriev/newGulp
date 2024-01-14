@@ -17,8 +17,14 @@ yarn dev
 
 ## SVG спрайт SVG Sprite
 
-<svg>
+<svg class="some-svg">
     <use xlink:href="assets/img/svg/sprite.svg#arrow"></use>
 </svg>
+
+<!-- <svg class="some-svg">
+    <use xlink:href="assets/img/svg/sprite.svg#arrow"></use>
+</svg> -->
+
+
 
 ## Telegram @nfithr
